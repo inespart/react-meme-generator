@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lucida Console', Courier, monospace;
+}
+
+body {
+  background: #264653;
+  color: black;
+
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section {
+  background: white;
+  border-radius: 5px;
+  padding: 50px;
+  box-shadow: 3px 4px 15px rgb(39, 38, 38);
+  display: flex;
+  flex-direction: column;
+  /*align-items: center;*/
+  max-width: 600px;
+  margin: auto;
+}
+
+button {
+  background-color: #2a9d8f;
+  border: #2a9d8f;
+  padding: 10px;
+  margin: 15px 0;
+  box-shadow: 3px 4px 10px rgb(39, 38, 38);
+  width: 200px;
+  align-self: center;
+}
+
+.inputArea {
+  margin: 5px 0;
+}
+
+h1 {
+  margin-bottom: 15px;
+}
+
+.memeImg {
+  width: 300px;
+  height: auto;
+  margin: 20px 0;
+}
