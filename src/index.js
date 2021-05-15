@@ -1,20 +1,9 @@
 import './index.css';
-import React, { useEffect, useState } from 'react';
+import './style.scss';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-// const Home = () => {
-//   const [meme, setMeme] = useState();
-
-//   useEffect(() => {
-//     fetch('https://api.memegen.link/images/buzz/memes/memes_everywhere.jpg')
-//       .then((r) => r.json())
-//       .then(setMeme);
-//   }, []);
-
-//   return <App meme={meme} />;
-// };
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,7 +1,36 @@
 import './App.css';
-import './style.css';
+import './style.scss';
+import React, { useEffect, useState } from 'react';
 
 function App() {
+  const [data, setData] = useState();
+  const [loading, setLoading] = useState();
+  const [error, setError] = useState();
+
+  useEffect(() => {
+    fetch('https://api.memegen.link/temp lates/')
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw response;
+      })
+      .then((data) => {
+        setData(data);
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+        setError(error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return 'Loading...';
+  if (error) return 'Error!';
+
   return (
     <main>
       <section>
@@ -23,6 +52,7 @@ function App() {
           src="https://api.memegen.link/images/buzz/happy/day.jpg"
           alt=""
         />
+        <button>Preview meme</button>
         <button>Download meme</button>
       </section>
     </main>
