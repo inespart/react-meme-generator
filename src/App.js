@@ -1,11 +1,12 @@
 import './App.css';
 import './style.css';
 import React, { useEffect, useState } from 'react';
+import Input from './Components/Input.js';
 
 function App() {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState();
-  const [error, setError] = useState();
+  // const [loading, setLoading] = useState();
+  // const [error, setError] = useState();
   const [topText, setTopText] = useState('');
   const [bottomText, setBottomText] = useState('');
   const [styleImage, setStyleImage] = useState();
@@ -13,13 +14,11 @@ function App() {
     'https://api.memegen.link/images/ams/Hello/my friends.png',
   );
 
-  const url = 'https://api.memegen.link/templates/';
-
   // Fetch template
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(url);
+        const response = await fetch('https://api.memegen.link/templates/');
         const json = await response.json();
         setData(json);
       } catch (e) {
@@ -29,6 +28,7 @@ function App() {
     fetchData();
   }, []);
 
+  // // Fetch template that didn't work
   // useEffect(() => {
   //   fetch(url)
   //     .then((response) => {
@@ -55,8 +55,10 @@ function App() {
   //     });
   // }, []);
 
-  // Functionality to download custom meme
+  // if (loading) return 'Loading...';
+  // if (error) return 'Error!';
 
+  // Functionality to download custom meme
   function forceDownload(blob, filename) {
     // Create an invisible anchor element
     const anchor = document.createElement('a');
@@ -86,39 +88,34 @@ function App() {
       .catch((e) => console.error(e));
   }
 
-  if (loading) return 'Loading...';
-  if (error) return 'Error!';
-
   return (
     <main>
       <section>
         <h1>Create your custom meme</h1>
 
-        <div className="inputArea">
-          <label htmlFor="topText">Top text: </label>
-          <input
-            type="text"
-            id="topText"
-            placeholder="Hello"
-            value={topText}
-            onChange={(e) => {
-              setTopText(e.currentTarget.value);
-            }}
-          />
-        </div>
+        <Input
+          htmlFor="topText"
+          text="Top text: "
+          type="text"
+          id="topText"
+          placeholder="Hello"
+          value={topText}
+          onChange={(e) => {
+            setTopText(e.currentTarget.value);
+          }}
+        />
 
-        <div className="inputArea">
-          <label htmlFor="bottomText">Bottom text: </label>
-          <input
-            type="text"
-            id="bottomText"
-            placeholder="my friends"
-            value={bottomText}
-            onChange={(e) => {
-              setBottomText(e.currentTarget.value);
-            }}
-          />
-        </div>
+        <Input
+          htmlFor="bottomText"
+          text="Bottom text: "
+          type="text"
+          id="bottomText"
+          placeholder="my friends"
+          value={bottomText}
+          onChange={(e) => {
+            setBottomText(e.currentTarget.value);
+          }}
+        />
 
         <div className="inputArea">
           <label htmlFor="styleImage">Image style: </label>
