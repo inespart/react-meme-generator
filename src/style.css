@@ -85,4 +85,15 @@ h1 {
   height: auto;
   margin: 10px 0;
 }
+
+@media screen and (max-width: 400px) {
+  section {
+    width: 100vh;
+    box-sizing: border-box;
+    border-radius: 0;
+    height: 100vh;
+    justify-content: center;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
