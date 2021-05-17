@@ -3,14 +3,15 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-size: 18px;
 }
 
 body {
   color: black;
   background: linear-gradient(
       0deg,
-      rgba(255, 255, 255, 0.137),
-      rgba(255, 255, 255, 0.137)
+      rgba(238, 155, 135, 0.137),
+      rgba(238, 155, 135, 0.137)
     ),
     url(https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=710&q=80);
   background-size: cover;
@@ -51,26 +52,33 @@ section {
 }
 
 button {
-  background-color: #9dd2d9;
-  border: #9dd2d9;
+  background-color: #ee9b87;
+  border: #ee9b87;
   padding: 10px;
-  margin: 15px 10px;
+  margin: 35px 10px;
   -webkit-box-shadow: 3px 4px 10px #272626;
   box-shadow: 3px 4px 10px #272626;
   width: 200px;
+  font-size: 1.2rem;
 }
 
 .inputArea {
   margin: 5px 0;
 }
 
+input,
+select {
+  padding: 5px;
+}
+
 h1 {
-  margin-bottom: 15px;
+  margin-bottom: 35px;
+  font-size: 1.3rem;
 }
 
 .memeImg {
   width: 300px;
   height: auto;
-  margin: 20px 0;
+  margin: 10px 0;
 }
 /*# sourceMappingURL=style.css.map */
