@@ -5,11 +5,9 @@ import Input from './Components/Input.js';
 
 function App() {
   const [data, setData] = useState([]);
-  // const [loading, setLoading] = useState();
-  // const [error, setError] = useState();
   const [topText, setTopText] = useState('');
   const [bottomText, setBottomText] = useState('');
-  const [styleImage, setStyleImage] = useState();
+  const [styleImage, setStyleImage] = useState('ams');
   const [customUrl, setCustomUrl] = useState(
     'https://api.memegen.link/images/ams/Hello/my friends.png',
   );
@@ -27,36 +25,6 @@ function App() {
     };
     fetchData();
   }, []);
-
-  // // Fetch template that didn't work
-  // useEffect(() => {
-  //   fetch(url)
-  //     .then((response) => {
-  //       if (response.ok) {
-  //         return response.json();
-  //       }
-  //       throw response;
-  //     })
-  //     .then((data) => {
-  //       setData(data);
-  //       // console.log(data);
-  //       const styleNames = data.map((item) => {
-  //         return item.id;
-  //       });
-  //       console.log('CL from useEffect');
-  //       console.log(styleNames);
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error fetching data:', error);
-  //       setError(error);
-  //     })
-  //     .finally(() => {
-  //       setLoading(false);
-  //     });
-  // }, []);
-
-  // if (loading) return 'Loading...';
-  // if (error) return 'Error!';
 
   // Functionality to download custom meme
   function forceDownload(blob, filename) {
@@ -120,15 +88,13 @@ function App() {
         <div className="inputArea">
           <label htmlFor="styleImage">Image style: </label>
           <select
-            type="text"
             id="styleImage"
             placeholder="buzz"
+            value={styleImage}
             onChange={(e) => {
               setStyleImage(e.currentTarget.value);
             }}
           >
-            <option>Please select</option>
-
             {data.map((item) => (
               <option value={item.id} key={item.id}>
                 {item.name}
@@ -140,13 +106,9 @@ function App() {
         <div>
           <button
             onClick={() => {
-              !styleImage
-                ? setCustomUrl(
-                    `https://api.memegen.link/images/ams/${topText}/${bottomText}.jpg`,
-                  )
-                : setCustomUrl(
-                    `https://api.memegen.link/images/${styleImage}/${topText}/${bottomText}.jpg`,
-                  );
+              setCustomUrl(
+                `https://api.memegen.link/images/${styleImage}/${topText}/${bottomText}.jpg`,
+              );
             }}
           >
             Preview meme
