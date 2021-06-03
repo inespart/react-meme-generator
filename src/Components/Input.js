@@ -1,6 +1,5 @@
 // Props destructuring
 export default function Input({
-  htmlFor,
   text,
   type,
   id,
@@ -10,7 +9,7 @@ export default function Input({
 }) {
   return (
     <div className="inputArea">
-      <label htmlFor={htmlFor}>{text}</label>
+      <label htmlFor={id}>{text}</label>
       <input
         type={type}
         id={id}

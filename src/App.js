@@ -62,7 +62,6 @@ function App() {
         <h1>Create your custom meme</h1>
 
         <Input
-          htmlFor="topText"
           text="Top text: "
           type="text"
           id="topText"
@@ -74,7 +73,6 @@ function App() {
         />
 
         <Input
-          htmlFor="bottomText"
           text="Bottom text: "
           type="text"
           id="bottomText"
